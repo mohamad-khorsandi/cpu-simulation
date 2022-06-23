@@ -3,3 +3,5 @@
 !*.c
 !*.h
 !.gitignore
+!io/
+!*.mc
