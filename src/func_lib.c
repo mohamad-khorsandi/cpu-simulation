@@ -1,5 +1,4 @@
 #include "func_lib.h"
-#include <math.h>
 
 long bin_slice(long num, int s, int e){
     num = num % pow2(e + 1);
@@ -13,4 +12,13 @@ long pow2(int pow){
         ans *= 2;
     }
     return ans;
+}
+
+long mux(int input0, int input1, int signal){
+    if(signal == 1){
+        return input1;
+    } else if (signal == 0){
+        return input0;
+    } else
+        return -1000;
 }

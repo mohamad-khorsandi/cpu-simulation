@@ -1,12 +1,10 @@
 #include <stdio.h>
+#include "control_unit.h"
 #define x -1
-typedef enum opr{
-    ADD, SUB, SLT, OR,NAND, SL16
-}opr;
 
-typedef enum inst{
+typedef enum inst_name{
     add=0, sub=1, slt=2, or=3, nand=4, addi=5 , slti=6, ori=7, lui=8, lw=9, sw=10, beq=11, jalr=12, j=13, halt=14
-}inst;
+}inst_name;
 
 int regDst;
 int extOP;
@@ -20,6 +18,7 @@ int memToReg;
 int linkReg;
 int jumpReg;
 int regWrite;
+void setter(int a, int b, int c, opr d, int e, int f, int g, int h, int i, int j, int k, int l);
 
 void set_signals(int opcode){
     switch(opcode){
@@ -69,13 +68,13 @@ void set_signals(int opcode){
         break;
 
         case beq:
-            setter(x,1,1,SUB,0,0,1,0,x,0,0,0);
+            setter(x,1,0,SUB,0,0,1,0,x,0,0,0);
         break;
 
         case jalr:
             setter(0,x,x,x,0,0,x,x,x,1,1,1);
         break;
-    //R Type----------------------------------
+    //J Type----------------------------------
         case j:
             setter(x,x,x,x,0,0,x,1,x,x,0,0);
         break;

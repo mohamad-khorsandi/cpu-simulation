@@ -2,8 +2,8 @@
 #define LOADER_H_INCLUDED
 void load_to_mem(char*);
 void show_mem();
-long mem_access(int index);
+long im_access(int index);
+long dm_access(int index);
+void write_to_mem(long data, int index);
 
-int mem_sz;
-long* mem;
 #endif // LOADER_H_INCLUDED
